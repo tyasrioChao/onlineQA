@@ -1,0 +1,543 @@
+<!doctype html>
+<head>
+<meta charset="utf-8">
+<meta content="width=device-width, initial-scale=1" name="viewport">
+<title>OnlineQA Login</title>
+<link rel="stylesheet" href="../css/jquery-ui.css">
+<link rel="stylesheet" href="../css/floating-labels.css">
+<link rel="stylesheet" href="../css/all.css">
+<link rel="stylesheet" href="../css/bootstrap.min.css">
+<link rel="stylesheet" href="../css/common.css">
+
+<script src="../js/jquery-3.2.1.min.js"></script>
+<script src="../js/popper.min.js"></script>
+<script src="../js/bootstrap.min.js"></script>
+<script src="../js/main.js"></script>
+<script src="../js/nlq1kdt.js"></script>
+<script src="../js/jquery-ui.js"></script>
+<script>
+	try {Typekit.load({async : true});} catch (e) {}
+</script>
+</head>
+<body>
+	<div id="page_login">
+		<div id="container">
+			<video id="background_video" loop muted></video>
+			<div id="video_cover"></div>
+			<div id="overlay"></div>
+
+			<section id="main_content">
+				<h1 style="font-family: cursive !important;">online Q&amp;A</h1>
+				<form class="form-signin">
+					<div class="form-group">
+						<div class="form-label-group">
+							<input type="email" id="inputEmail" class="form-control" placeholder="Email address" required autofocus>
+							<label for="inputEmail">Email address</label>
+						</div>
+					</div>
+
+					<div class="form-label-group">
+						<input type="password" id="inputPassword" class="form-control" placeholder="Password" required>
+						<label for="inputPassword">Password</label>
+					</div>
+
+					<div class="checkbox mb-3">
+						<label> <input type="checkbox" value="remember-me">Remember me</label>
+					</div>
+					<button class="btn btn-lg btn-primary btn-block" type="submit">Sign in</button>
+					<p class="mt-5 mb-3 text-muted text-center">©Tyasrio 2017-2018</p>
+				</form>
+				<div id="resgister_div" hidden="true">
+					<h1>online Q&amp;A</h1>
+					<form action="" method="post">
+						<table
+							style="border-collapse: separate; border-spacing: 20px 20px;">
+							<tr>
+								<td><label for="email">Email:</label></td>
+								<td><input type="text" id="email"
+									placeholder="input your email" /></td>
+							</tr>
+							<tr>
+								<td><label for="password">Nick Name:</label></td>
+								<td><input type="password" id="password" placeholder="input your password" /></td>
+								<td rowspan="2">
+									<input type="submit" name="login" id="login" value="Login" style="display: none">
+									<label for="login" title="填写完成，进行注册!"><i class="fas fa-angle-double-right"></i></label>
+								</td>
+							</tr>
+							<tr>
+								<td><label for="password">Password:</label></td>
+								<td><input type="password" id="password" placeholder="input your password" /></td>
+							</tr>
+							<tr>
+								<td><label for="password">Ensure Password:</label></td>
+								<td><input type="password" id="password" placeholder="input your password" /></td>
+							</tr>
+							<tr></tr>
+						</table>
+					</form>
+				</div>
+			</section>
+		</div>
+
+		<div id="footer">
+			<a href="http://www.tyasrio.com">Developed By Tyasrio</a> <a
+				href="https://www.youtube.com/watch?v=w7JrHIHi8t0" target="_blank">
+				Video by shortenit </a>
+		</div>
+	</div>
+	
+	<div id="page_main" class="d-none">
+		<header class="main_header w-100 pl-4 pr-4 d-flex flex-row justify-content-between align-items-center">
+			<section class="search w-25 wx-25 p-2">
+				<div class="search_container form-inline">
+					<label class="fas fa-search search_icon mb-0" for="search_box"></label>
+					<input class="search_box" id="search_box" placeholder="search content..."></input>
+				</div>
+			</section>
+			<section class="title w-50 wx-50 text-nowrap text-center">
+				<p class="font-weight-bold">online Q&amp;A</p>
+			</section>
+			<section class="menu align-middle w-25 wx-25">
+				<div class="btn-group">
+					<i class="fas fa-bars" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"></i>
+					<div class="dropdown-menu dropdown-menu-right">
+						<button class="dropdown-item" type="button">Action</button>
+						<button class="dropdown-item" type="button">Another action</button>
+						<button class="dropdown-item" type="button">Something else here</button>
+					</div>
+				</div>
+			</section>
+		</header>
+		<main>
+			<section id="main_body_tabs">
+				<ul class="nav nav-tabs">
+					<li class="nav-item"><a class="nav-link active" href="#Question_List">问题列表</a></li>
+					<li class="nav-item"><a class="nav-link" href="#Question">提问</a></li>
+					<li class="nav-item"><a class="nav-link" href="#Album">相册</a>
+					<li class="nav-item"><a class="nav-link" href="#Zone">个人空间</a>
+					<li class="nav-item dropdown">
+						<a class="nav-link dropdown-toggle" data-toggle="dropdown" href="#" role="button" aria-haspopup="true" aria-expanded="false">Administrator</a>
+						<div class="dropdown-menu">
+							<a class="dropdown-item" href="#">manage</a>
+							<a class="dropdown-item" href="#">Another action</a>
+							<a class="dropdown-item" href="#">Something else here</a>
+							<div class="dropdown-divider"></div>
+							<a class="dropdown-item" href="#">Separated link</a>
+						</div>
+					</li>
+				</ul>
+			</section>
+			<section id="main_body_contents" class="h-75 hx-75 w-100 d-flex flex-column">
+				<div class="main_body_contents_div d-none" id="main_body_contents_1" style="overflow: hidden;">
+					<div class="question_list clearfix mb-4">
+						<div>
+							<table data-toggle="table" class="main_body_contents_1_table mb-0 table">
+								<thead>
+									<tr>
+										<th scope="col">&nbsp;</th>
+										<th scope="col">title</th>
+										<th scope="col">content</th>
+										<th scope="col">author</th>
+									</tr>
+								</thead>
+							</table>
+						</div>
+						<div style="height: calc(100% - 54px);overflow: auto;">
+							<table data-toggle="table" class="main_body_contents_1_table table">
+								<tbody>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">1</th>
+										<td>Mark</td>
+										<td>Otto</td>
+										<td>@mdo</td>
+									</tr>
+									<tr>
+										<th scope="row">2</th>
+										<td>Jacob</td>
+										<td>Thornton</td>
+										<td>@fat</td>
+									</tr>
+									<tr>
+										<th scope="row">3</th>
+										<td>Larry</td>
+										<td>the Bird</td>
+										<td>@twitter</td>
+									</tr>
+								</tbody>
+							</table>
+						</div>
+					</div>
+					<nav aria-label="Page navigation example">
+						<ul class="pagination justify-content-end">
+							<li class="page-item disabled"><a class="page-link" href="#"
+								tabindex="-1">Previous</a></li>
+							<li class="page-item"><a class="page-link" href="#">1</a></li>
+							<li class="page-item"><a class="page-link" href="#">2</a></li>
+							<li class="page-item"><a class="page-link" href="#">3</a></li>
+							<li class="page-item"><a class="page-link" href="#">Next</a></li>
+						</ul>
+					</nav>
+				</div>
+				<div class="main_body_contents_div d-none" id="main_body_contents_2">
+					<form>
+						<div class="form-group col-md-6">
+							<label for="inputEmail4">Title</label> 
+							<input type="email" class="form-control" id="inputEmail4" placeholder="&hearts;如何成为一个优秀的舔狗？">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="inputPassword4">Keyword</label>
+							<input type="password" class="form-control" id="inputPassword4" placeholder="优秀 舔狗">
+						</div>
+						<div class="form-group col-md-6">
+							<label for="exampleInputEmail1">Email address</label>
+	    					<input type="email" class="form-control" id="exampleInputEmail1" aria-describedby="emailHelp" placeholder="Enter email">
+							<small id="emailHelp" class="form-text text-muted">We'll notice you when anyone else answered your question.</small>
+						</div>
+						<div class="form-group col-md-6">
+							<div class="form-check">
+								<input class="form-check-input" type="checkbox" id="stickyCheck">
+								<label class="form-check-label" for="stickyCheck"> STICKY? </label>
+							</div>
+						</div>
+						<div class="form-group col-md-6">
+							<label for="exampleFormControlTextarea1">Description</label>
+							<textarea class="form-control" id="exampleFormControlTextarea1" rows="3"></textarea>
+						</div>
+	<!-- 					<div class="form-group col-md-6"> -->
+	<!-- 						<div class="form-check"> -->
+	<!-- 							<input class="form-check-input" type="checkbox" id="gridCheck"> -->
+	<!-- 							<label class="form-check-label" for="gridCheck"> Check me out </label> -->
+	<!-- 						</div> -->
+	<!-- 					</div> -->
+						<button type="submit" class="btn btn-primary">Sign in</button>
+					</form>
+				</div>
+				<div class="main_body_contents_div d-none" id="main_body_contents_3">
+					<div class="album py-5 bg-light">
+						<div class="container">
+							<div class="row">
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											style="height: 225px; width: 100%; display: block;"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4ab%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4ab%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4b1%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4b1%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true"
+											style="height: 225px; width: 100%; display: block;">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4b5%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4b5%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true"
+											style="height: 225px; width: 100%; display: block;">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+	
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4bb%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4bb%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true"
+											style="height: 225px; width: 100%; display: block;">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4bf%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4bf%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true"
+											style="height: 225px; width: 100%; display: block;">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4c2%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4c2%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true"
+											style="height: 225px; width: 100%; display: block;">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+	
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4c6%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4c6%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true"
+											style="height: 225px; width: 100%; display: block;">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4c8%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4c8%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true"
+											style="height: 225px; width: 100%; display: block;">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+								<div class="col-md-4">
+									<div class="card mb-4 shadow-sm">
+										<img class="card-img-top"
+											data-src="holder.js/100px225?theme=thumb&amp;bg=55595c&amp;fg=eceeef&amp;text=Thumbnail"
+											alt="Thumbnail [100%x225]"
+											src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22348%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20348%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_166af5fc4ca%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A17pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_166af5fc4ca%22%3E%3Crect%20width%3D%22348%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%22116.7265625%22%20y%3D%22120.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E"
+											data-holder-rendered="true"
+											style="height: 225px; width: 100%; display: block;">
+										<div class="card-body">
+											<p class="card-text">This is a wider card with supporting
+												text below as a natural lead-in to additional content. This
+												content is a little bit longer.</p>
+											<div class="d-flex justify-content-between align-items-center">
+												<div class="btn-group">
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">View</button>
+													<button type="button"
+														class="btn btn-sm btn-outline-secondary">Edit</button>
+												</div>
+												<small class="text-muted">9 mins</small>
+											</div>
+										</div>
+									</div>
+								</div>
+							</div>
+						</div>
+					</div>
+				</div>
+				<div class="main_body_contents_div d-none" id="main_body_contents_4"></div>
+				<div class="main_body_contents_div d-none" id="main_body_contents_5"></div>
+			</section>
+		</main>
+		<footer>
+			<a href="http://www.tyasrio.com">Developed By Tyasrio</a>
+		</footer>
+	</div>
+	
+	<script src="../js/bideo.js"></script>
+	<script src="../js/common.js"></script>
+	<script>
+		$(function() {
+			$(document).tooltip();
+		});
+	</script>
+</body>
+</html>
